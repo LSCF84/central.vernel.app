@@ -21,6 +21,21 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
         }
+
+        /* ------------------------------------- */
+        /* Animación del Fantasma */
+        /* ------------------------------------- */
+        /* Define los keyframes para el movimiento sutil */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Aplica la animación al emoji */
+        .ghost-float {
+            animation: float 4s ease-in-out infinite;
+        }
     </style>
 </head>
 <body>
@@ -30,7 +45,8 @@
         
         <div class="mb-6">
             <!-- Icono de Error (simulando un emoji grande) -->
-            <p class="text-7xl mb-4" role="img" aria-label="Fantasma o calavera">👻</p>
+            <!-- Se ha añadido la clase ghost-float para aplicar la animación -->
+            <p class="text-7xl mb-4 ghost-float" role="img" aria-label="Fantasma o calavera">👻</p>
 
             <!-- Código de Error -->
             <p class="text-6xl sm:text-7xl font-extrabold text-red-500 font-mono tracking-widest">
