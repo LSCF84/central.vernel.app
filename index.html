@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub Central de Proyectos de Desarrollo LSCF</title>
-    <!-- Carga de Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración para usar la fuente Inter -->
+    
+    <script>
+        // Habilita el modo oscuro basado en la clase 'dark' en el elemento raíz (<html>)
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
@@ -14,7 +20,8 @@
             background-color: #f7f9fb; /* Fondo gris muy claro (Light Mode) */
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-        /* Definición de variables CSS para el tema */
+        
+        /* Definición de variables CSS para el tema (SE MANTIENEN) */
         :root {
             --color-primary-500: 48 44 233; /* Indigo 600 (RGB) */
             --color-primary-600: 67 56 202; /* Indigo 700 (RGB) */
@@ -27,7 +34,6 @@
             background-color: rgb(var(--color-primary-600) / 1);
         }
         .theme-border-top {
-            /* Asegura que el color de borde usa la variable */
             border-top-color: rgb(var(--color-border-color) / 1);
         }
         .theme-text-primary {
@@ -37,98 +43,62 @@
             color: rgb(var(--color-primary-600) / 1);
         }
 
-        /* --- Estilos para el Modo Oscuro (Dark Mode) --- */
-        .dark-mode {
-            background-color: #111827; /* Fondo oscuro principal */
-        }
-        /* Ajuste de fondo para Header y Tarjetas */
-        .dark-mode .bg-white {
-            background-color: #1f2937; /* Fondo oscuro para elementos internos */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-        }
-        /* Ajuste de color de texto */
-        .dark-mode .text-gray-900 {
-            color: #f9fafb; /* Títulos a blanco */
-        }
-        .dark-mode .text-gray-600 {
-            color: #d1d5db; /* Texto principal a gris claro */
-        }
-        .dark-mode .text-gray-500 {
-            color: #9ca3af; /* Texto secundario a gris medio */
-        }
-        .dark-mode .theme-controls-container {
-            background-color: #1f2937; /* Fondo del selector de temas oscuro */
-        }
-        .dark-mode #theme-toggle {
-            background-color: #374151; /* Fondo del botón de toggle oscuro */
-            color: #f9fafb; /* Color del icono claro */
-        }
+        /* ESTILOS DEL MODO OSCURO: SE ELIMINARON LOS ESTILOS MANUALES AQUÍ. 
+           Ahora se usan clases como dark:bg-gray-800 en el HTML. */
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased **bg-gray-50** **dark:bg-gray-900** transition duration-300">
 
-    <!-- Contenedor Principal Centrado -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-        <!-- Selector de Tema (Theme Picker) y Modo Oscuro -->
-        <div class="fixed top-4 right-4 z-50 p-2 bg-white rounded-full shadow-lg flex space-x-2 transition duration-300 theme-controls-container">
-            <span class="text-sm font-medium text-gray-700 self-center hidden sm:inline">Tema:</span>
-            <!-- Botones de Color (Índigo, Verde, Púrpura) -->
-            <button id="theme-indigo" class="w-8 h-8 rounded-full bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition duration-150" title="Tema Índigo"></button>
-            <button id="theme-green" class="w-8 h-8 rounded-full bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transition duration-150" title="Tema Verde"></button>
-            <button id="theme-purple" class="w-8 h-8 rounded-full bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-600 transition duration-150" title="Tema Púrpura"></button>
+        <div class="fixed top-4 right-4 z-50 p-2 **bg-white** **dark:bg-gray-800** rounded-full shadow-lg flex space-x-2 transition duration-300 theme-controls-container **dark:shadow-2xl** **dark:border** **dark:border-gray-700**">
+            <span class="text-sm font-medium text-gray-700 **dark:text-gray-300** self-center hidden sm:inline">Tema:</span>
             
-            <!-- Separador -->
-            <div class="border-l border-gray-300 mx-1"></div>
+            <button id="theme-indigo" class="w-8 h-8 rounded-full bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 **dark:focus:ring-offset-gray-800** focus:ring-indigo-600 transition duration-150" title="Tema Índigo"></button>
+            <button id="theme-green" class="w-8 h-8 rounded-full bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 **dark:focus:ring-offset-gray-800** focus:ring-green-600 transition duration-150" title="Tema Verde"></button>
+            <button id="theme-purple" class="w-8 h-8 rounded-full bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 **dark:focus:ring-offset-gray-800** focus:ring-purple-600 transition duration-150" title="Tema Púrpura"></button>
+            
+            <div class="border-l border-gray-300 **dark:border-gray-600** mx-1"></div>
 
-            <!-- Botón para alternar Modo Oscuro/Claro -->
-            <button id="theme-toggle" class="w-8 h-8 rounded-full bg-gray-200 text-gray-800 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150" title="Alternar Modo Oscuro">
-                <!-- Icono de Luna (Modo Oscuro) -->
+            <button id="theme-toggle" class="w-8 h-8 rounded-full bg-gray-200 **dark:bg-gray-700** text-gray-800 **dark:text-white** flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 **dark:focus:ring-offset-gray-800** focus:ring-gray-500 transition duration-150" title="Alternar Modo Oscuro">
                 <svg id="moon-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21.73,15.75A9.43,9.43,0,0,1,16,19.5,9.55,9.55,0,0,1,6.5,10,9.43,9.43,0,0,1,10.25,4.27a.5.5,0,0,0-.49-.24A10,10,0,1,0,22,16.24a.5.5,0,0,0-.27-.49Z"/></svg>
-                <!-- Icono de Sol (Modo Claro) - inicialmente oculto -->
                 <svg id="sun-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12,4a1,1,0,0,0-1,1V7a1,1,0,0,0,2,0V5A1,1,0,0,0,12,4Zm7.66,4.66a1,1,0,0,0-.71.29L17.59,9.88a1,1,0,0,0,1.42,1.42l1.34-1.34a1,1,0,0,0,0-1.42A1,1,0,0,0,19.66,8.66ZM12,17a5,5,0,1,0,5,5A5,5,0,0,0,12,17Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,12,25ZM4.34,9.99a1,1,0,0,0,1.42,0l1.34-1.34a1,1,0,0,0-1.42-1.42L4.34,8.57A1,1,0,0,0,4.34,9.99ZM5,12a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V13A1,1,0,0,0,5,12Zm2,7.34a1,1,0,0,0,1.42,0l1.34-1.34a1,1,0,0,0-1.42-1.42L6,17.59A1,1,0,0,0,7.34,19.34Z"/></svg>
             </button>
         </div>
 
-        <!-- Sección de Encabezado y Presentación (Hero) - MODIFICADO -->
-        <header class="text-center py-20 bg-white rounded-2xl shadow-2xl mb-16 transition duration-300 border-b-8 theme-border-top border-opacity-70">
-            <!-- Placeholder para la imagen de perfil/logo profesional -->
-            <div class="mx-auto w-24 h-24 mb-6 rounded-full bg-gray-200 flex items-center justify-center text-4xl font-light text-gray-600 border-4 border-white dark:border-[#111827] shadow-inner">
+        <header class="text-center py-20 **bg-white** **dark:bg-gray-800** rounded-2xl **shadow-xl** **dark:shadow-2xl** mb-16 transition duration-300 border-b-8 theme-border-top border-opacity-70">
+            <div class="mx-auto w-24 h-24 mb-6 rounded-full bg-gray-200 flex items-center justify-center text-4xl font-light text-gray-600 border-4 border-white **dark:border-gray-800** shadow-inner">
                 LSCF
             </div>
             
-            <h1 class="text-5xl font-extrabold text-gray-900 sm:text-6xl tracking-tight">
+            <h1 class="text-5xl font-extrabold text-gray-900 **dark:text-white** sm:text-6xl tracking-tight">
                 Hub Central de Proyectos de Desarrollo
             </h1>
-            <p class="mt-4 text-xl text-gray-600 max-w-4xl mx-auto">
+            <p class="mt-4 text-xl text-gray-600 **dark:text-gray-300** max-w-4xl mx-auto">
                 Esta web actúa como el punto de acceso principal a mi ecosistema de aplicaciones y portafolios. Explora soluciones avanzadas de Next.js, plataformas modulares y sitios web corporativos de alto rendimiento.
             </p>
-            <!-- Botón de Llamada a la Acción -->
             <div class="mt-10">
-                <a href="#proyectos" class="inline-flex items-center justify-center px-10 py-3.5 border border-transparent text-lg font-semibold rounded-lg shadow-xl text-white theme-bg-primary theme-hover-bg-primary transition duration-300 transform hover:scale-[1.02] active:scale-100 ring-4 ring-transparent hover:ring-white/30">
+                <a href="#proyectos" class="inline-flex items-center justify-center px-10 py-3.5 border border-transparent text-lg font-semibold rounded-lg shadow-xl text-white theme-bg-primary theme-hover-bg-primary transition duration-300 transform hover:scale-[1.02] active:scale-100 ring-4 ring-transparent hover:ring-white/30 **dark:ring-gray-700/30**">
                     Explorar Soluciones
                 </a>
             </div>
         </header>
 
-        <!-- Sección de Proyectos (Grid) -->
         <section id="proyectos" class="pt-10">
-            <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Showcase: Proyectos y Plataformas Conectadas</h2>
+            <h2 class="text-3xl font-bold text-gray-900 **dark:text-white** text-center mb-12">Showcase: Proyectos y Plataformas Conectadas</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- Tarjeta de Proyecto 1: Portfolio Main LSCF (Presentación Ejecutiva) -->
-                   <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
-                    <!-- Placeholder/Previsualización: Modificado -->
-                    <div class="h-40 bg-gray-100/50 flex items-center justify-center overflow-hidden">
-                        <img src="imagenes/portfolio-main-lscf.vercel.app.png" 
+                <div class="bg-white **dark:bg-gray-800** rounded-xl shadow-xl **dark:shadow-2xl** overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
+                    <div class="h-40 bg-gray-100/50 **dark:bg-gray-700/50** flex items-center justify-center overflow-hidden">
+                        <img src="/imagenes/portfolio-main-lscf.vercel.app.png" 
                              onerror="this.onerror=null;this.src='https://portfolio-main-lscf.vercel.app/';" 
                              alt="Previsualización de Portfolio Main LSCF" 
                              class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Portfolio Main</h3>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                        <h3 class="text-xl font-bold text-gray-900 **dark:text-white** mb-2">Portfolio Main</h3>
+                        <p class="text-gray-600 **dark:text-gray-300** text-sm mb-4 line-clamp-3 h-16">
                             Mi portafolio personal principal, diseñado para una presentación ejecutiva y rápida de mis habilidades y experiencia clave.
                         </p>
                         <div class="flex flex-wrap gap-2 text-xs mb-4">
@@ -143,18 +113,16 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta de Proyecto 2: Portfolio WebSteel (Estructuras Metálicas) -->
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
-                    <!-- Placeholder/Previsualización: Modificado -->
-                    <div class="h-40 bg-gray-100/50 flex items-center justify-center overflow-hidden">
+                <div class="bg-white **dark:bg-gray-800** rounded-xl shadow-xl **dark:shadow-2xl** overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
+                    <div class="h-40 bg-gray-100/50 **dark:bg-gray-700/50** flex items-center justify-center overflow-hidden">
                          <img src="/imagenes/portfolio-websteel.vercel.app.png" 
                               onerror="this.onerror=null;this.src='https://portfolio-websteel.vercel.app/';" 
                               alt="Previsualización de WebSteel" 
                               class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Portfolio WebSteel</h3>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                        <h3 class="text-xl font-bold text-gray-900 **dark:text-white** mb-2">Portfolio WebSteel</h3>
+                        <p class="text-gray-600 **dark:text-gray-300** text-sm mb-4 line-clamp-3 h-16">
                             Sitio web corporativo de alto impacto para una empresa de estructuras metálicas. Foco en branding y galería de proyectos.
                         </p>
                         <div class="flex flex-wrap gap-2 text-xs mb-4">
@@ -169,18 +137,16 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta de Proyecto 3: LSCF Portafolio JR Development (Personal) -->
-            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
-                    <!-- Placeholder/Previsualización: Modificado -->
-                    <div class="h-40 bg-gray-100/50 flex items-center justify-center overflow-hidden">
-                        <img src="imagenes/jrdev-lscf.vercel.app.png" 
+                <div class="bg-white **dark:bg-gray-800** rounded-xl shadow-xl **dark:shadow-2xl** overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
+                    <div class="h-40 bg-gray-100/50 **dark:bg-gray-700/50** flex items-center justify-center overflow-hidden">
+                        <img src="/imagenes/jrdev-lscf.vercel.app.png" 
                              onerror="this.onerror=null;this.src='https://jrdev-lscf.vercel.app/';" 
                              alt="Previsualización de App Demo Next.js" 
                              class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Portafolio JR Development</h3>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                        <h3 class="text-xl font-bold text-gray-900 **dark:text-white** mb-2">Portafolio JR Development</h3>
+                        <p class="text-gray-600 **dark:text-gray-300** text-sm mb-4 line-clamp-3 h-16">
                             Mi portafolio personal y principal como desarrollador Full-Stack, con énfasis en experiencia y proyectos recientes.
                         </p>
                         <div class="flex flex-wrap gap-2 text-xs mb-4">
@@ -194,18 +160,17 @@
                         </a>
                     </div>
                 </div>
-                <!-- Tarjeta de Proyecto 4: App Demo Next.js (Modern Full-Stack) -->
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
-                    <!-- Placeholder/Previsualización: Modificado -->
-                    <div class="h-40 bg-gray-100/50 flex items-center justify-center overflow-hidden">
-                        <img src="imagenes/portfolio.nextjs.vercel.app.png" 
+
+                <div class="bg-white **dark:bg-gray-800** rounded-xl shadow-xl **dark:shadow-2xl** overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
+                    <div class="h-40 bg-gray-100/50 **dark:bg-gray-700/50** flex items-center justify-center overflow-hidden">
+                        <img src="/imagenes/portfolio.nextjs.vercel.app.png" 
                              onerror="this.onerror=null;this.src='https://portfolio-nextjs-vercel-app.vercel.app/';" 
                              alt="Previsualización de App Demo Next.js" 
                              class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2"> Portfolio Next.js </h3>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                        <h3 class="text-xl font-bold text-gray-900 **dark:text-white** mb-2"> Portfolio Next.js </h3>
+                        <p class="text-gray-600 **dark:text-gray-300** text-sm mb-4 line-clamp-3 h-16">
                             Demostración de una aplicación full-stack moderna construida con el stack más reciente de Next.js.
                         </p>
                         <div class="flex flex-wrap gap-2 text-xs mb-4">
@@ -219,18 +184,17 @@
                         </a>
                     </div>
                 </div>
-                    <!-- Tarjeta de Proyecto 5: LSCF Core Digital (Plataforma Principal) -->
-                 <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
-                    <!-- Placeholder/Previsualización: Modificado -->
-                    <div class="h-40 bg-gray-100/50 flex items-center justify-center overflow-hidden">
+
+                <div class="bg-white **dark:bg-gray-800** rounded-xl shadow-xl **dark:shadow-2xl** overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
+                    <div class="h-40 bg-gray-100/50 **dark:bg-gray-700/50** flex items-center justify-center overflow-hidden">
                         <img src="/imagenes/lscf-central.vercel.app.png" 
-                             onerror="this.onerror=null;this.src='https://lscf-coredigital.vercel.app/;" 
+                             onerror="this.onerror=null;this.src='https://lscf-coredigital.vercel.app/';" 
                              alt="Previsualización de LSCF Central" 
                              class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2"> Portfolio Core Digital</h3>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                        <h3 class="text-xl font-bold text-gray-900 **dark:text-white** mb-2"> Portfolio Core Digital</h3>
+                        <p class="text-gray-600 **dark:text-gray-300** text-sm mb-4 line-clamp-3 h-16">
                             Dashboard centralizado para la gestión de servicios y recursos. Arquitectura modular y escalable.
                         </p>
                         <div class="flex flex-wrap gap-2 text-xs mb-4">
@@ -244,19 +208,15 @@
                         </a>
                     </div>
                 </div>
-                <!-- Si deseas añadir el quinto enlace (que era una repetición de LSCF Central), podrías duplicar una de las tarjetas aquí y darle un enfoque diferente. -->
-
             </div>
         </section>
 
-        <!-- Pie de Página - MODIFICADO -->
-        <footer class="mt-24 text-center text-gray-500 text-sm">
+        <footer class="mt-24 text-center text-gray-500 **dark:text-gray-400** text-sm">
             <p>&copy; 2025 LSCF Development Hub. Todos los derechos reservados. Desarrollado con 💙 y Tailwind CSS.</p>
         </footer>
 
     </div>
 
-    <!-- Script de JavaScript para la funcionalidad de cambio de tema y modo oscuro -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const themes = {
@@ -277,42 +237,41 @@
                 }
             };
 
-            const root = document.documentElement;
-            const body = document.body;
+            const htmlElement = document.documentElement; // Ahora apunta a <html>
             const themeToggle = document.getElementById('theme-toggle');
             const moonIcon = document.getElementById('moon-icon');
             const sunIcon = document.getElementById('sun-icon');
 
-            // --- Funciones del Modo Oscuro ---
+            // --- Funciones del Modo Oscuro (SIMPLIFICADAS) ---
             function enableDarkMode() {
-                body.classList.add('dark-mode');
+                htmlElement.classList.add('dark'); // Aplica la clase 'dark' a <html>
                 moonIcon.classList.add('hidden');
                 sunIcon.classList.remove('hidden');
                 localStorage.setItem('colorMode', 'dark');
             }
 
             function disableDarkMode() {
-                body.classList.remove('dark-mode');
+                htmlElement.classList.remove('dark'); // Remueve la clase 'dark' de <html>
                 sunIcon.classList.add('hidden');
                 moonIcon.classList.remove('hidden');
                 localStorage.setItem('colorMode', 'light');
             }
 
             function toggleDarkMode() {
-                if (body.classList.contains('dark-mode')) {
+                if (htmlElement.classList.contains('dark')) {
                     disableDarkMode();
                 } else {
                     enableDarkMode();
                 }
             }
 
-            // --- Funciones del Tema de Color ---
+            // --- Funciones del Tema de Color (SIN CAMBIOS) ---
             function applyTheme(themeName) {
                 const theme = themes[themeName];
                 if (theme) {
-                    root.style.setProperty('--color-primary-500', theme['primary-500']);
-                    root.style.setProperty('--color-primary-600', theme['primary-600']);
-                    root.style.setProperty('--color-border-color', theme['border-color']);
+                    htmlElement.style.setProperty('--color-primary-500', theme['primary-500']);
+                    htmlElement.style.setProperty('--color-primary-600', theme['primary-600']);
+                    htmlElement.style.setProperty('--color-border-color', theme['border-color']);
                     localStorage.setItem('portfolioTheme', themeName);
                 }
             }
@@ -325,15 +284,15 @@
 
             // Cargar el modo de color guardado (oscuro/claro)
             const savedColorMode = localStorage.getItem('colorMode');
-            if (savedColorMode === 'dark') {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedColorMode === 'dark' || (!savedColorMode && prefersDark)) {
                 enableDarkMode();
             } else {
-                disableDarkMode(); // Asegurarse de que esté en modo claro si no hay preferencia o es 'light'
+                disableDarkMode();
             }
 
             // --- Añadir Listeners ---
-            
-            // Listeners para los temas de color
             document.getElementById('theme-indigo').addEventListener('click', () => applyTheme('indigo'));
             document.getElementById('theme-green').addEventListener('click', () => applyTheme('green'));
             document.getElementById('theme-purple').addEventListener('click', () => applyTheme('purple'));
