@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -66,7 +65,7 @@
         <header class="text-center py-20 bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-2xl mb-16 transition duration-300 border-b-8 theme-border-top border-opacity-70">
             
             <div class="mx-auto w-24 h-24 mb-6 rounded-full bg-gray-200 flex items-center justify-center text-4xl font-light text-gray-600 border-4 border-white dark:border-gray-800 shadow-inner overflow-hidden">
-                <img src="/imagenes/logo.png" alt="Logo LSCF Development" class="w-full h-full object-cover">
+                <img src="/imagenes/logo.png" alt="Logo LSCF Development" class="w-full h-full **object-contain p-2**">
             </div>
             
             <h1 class="text-5xl font-extrabold text-gray-900 dark:text-white sm:text-6xl tracking-tight">
@@ -114,9 +113,9 @@
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
                     <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden">
                          <img src="/imagenes/portfolio-websteel.vercel.app.png" 
-                              onerror="this.onerror=null;this.src='https://portfolio-websteel.vercel.app/';" 
-                              alt="Previsualización de WebSteel" 
-                              class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
+                                 onerror="this.onerror=null;this.src='https://portfolio-websteel.vercel.app/';" 
+                                 alt="Previsualización de WebSteel" 
+                                 class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Portfolio WebSteel</h3>
@@ -214,6 +213,56 @@
         </footer>
 
     </div>
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] bg-gray-900/95 dark:bg-gray-900/90 backdrop-blur-sm text-white p-4 shadow-2xl transition-transform duration-500 transform translate-y-0" role="alert" style="display: none;">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-sm">
+                Usamos cookies propias y de terceros para análisis y optimización de rendimiento. Al hacer clic en "Aceptar", consientes su uso. Consulta nuestra <a href="#" class="font-semibold underline theme-text-primary hover:text-white dark:hover:text-white transition-colors">Política de Cookies</a>.
+            </p>
+            <div class="flex flex-shrink-0 space-x-3">
+                <button id="cookie-accept-all" class="px-5 py-2 text-sm font-semibold rounded-lg text-white theme-bg-primary theme-hover-bg-primary transition duration-200 shadow-md">
+                    Aceptar Todo
+                </button>
+                <button id="cookie-configure" class="px-5 py-2 text-sm font-semibold rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition duration-200 shadow-md">
+                    Configurar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-modal" class="fixed inset-0 z-[110] bg-gray-900/80 dark:bg-gray-900/90 flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none" aria-modal="true" role="dialog">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl max-w-lg w-full m-4 p-6 transform transition-transform duration-300 translate-y-4">
+            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Ajustes de Cookies</h3>
+            
+            <div class="space-y-4">
+                <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-3">
+                    <div>
+                        <p class="font-semibold text-gray-900 dark:text-white">Cookies Estrictamente Necesarias</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Esenciales para la funcionalidad básica del sitio (Ej: modo oscuro, sesión).</p>
+                    </div>
+                    <span class="text-sm font-semibold text-green-600 dark:text-green-400">Siempre Activas</span>
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="font-semibold text-gray-900 dark:text-white">Cookies de Análisis y Rendimiento</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Nos ayudan a entender cómo los visitantes usan el sitio para mejorar la experiencia.</p>
+                    </div>
+                    <label for="analytics-toggle" class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="analytics-toggle" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-600"></div>
+                    </label>
+                </div>
+                
+            </div>
+
+            <div class="flex justify-end mt-6 space-x-3">
+                <button id="cookie-save-preferences" class="px-5 py-2 text-sm font-semibold rounded-lg text-white theme-bg-primary theme-hover-bg-primary transition duration-200 shadow-md">
+                    Guardar Preferencias
+                </button>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -274,16 +323,15 @@
                 }
             }
 
-            // --- Inicialización ---
+            // --- Inicialización del Tema y Modo Oscuro ---
 
             // Cargar el tema de color guardado
             const savedTheme = localStorage.getItem('portfolioTheme') || 'indigo';
             applyTheme(savedTheme);
 
-            // Cargar el modo de color guardado (oscuro/claro) - PREDETERMINADO EN MODO OSCURO
+            // Cargar el modo de color guardado (PREDETERMINADO EN MODO OSCURO)
             const savedColorMode = localStorage.getItem('colorMode');
             
-            // Si no hay preferencia guardada O la preferencia es 'dark', activa el modo oscuro
             if (savedColorMode === 'dark' || savedColorMode === null) {
                 enableDarkMode();
             } else {
@@ -299,6 +347,112 @@
             themeToggle.addEventListener('click', toggleDarkMode);
         });
     </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const banner = document.getElementById('cookie-banner');
+            const modal = document.getElementById('cookie-modal');
+            const acceptAllBtn = document.getElementById('cookie-accept-all');
+            const configureBtn = document.getElementById('cookie-configure');
+            const savePreferencesBtn = document.getElementById('cookie-save-preferences');
+            const analyticsToggle = document.getElementById('analytics-toggle');
+
+            // --- Funciones del DOM/Modal ---
+            function showBanner() {
+                banner.style.display = 'block';
+                // Usamos setTimeout para asegurar la transición
+                setTimeout(() => banner.style.transform = 'translateY(0)', 10);
+            }
+
+            function hideBanner() {
+                banner.style.transform = 'translateY(100%)';
+                setTimeout(() => banner.style.display = 'none', 500);
+            }
+
+            function showModal() {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.querySelector('div').classList.remove('translate-y-4');
+                hideBanner();
+            }
+
+            function hideModal() {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.querySelector('div').classList.add('translate-y-4');
+                if (!localStorage.getItem('cookie_consent')) {
+                    showBanner(); 
+                }
+            }
+            
+            // --- Lógica de Consentimiento ---
+            function getConsent() {
+                try {
+                    const consentString = localStorage.getItem('cookie_consent');
+                    if (consentString) {
+                         return JSON.parse(consentString);
+                    }
+                    return null;
+                } catch (e) {
+                    return null;
+                }
+            }
+
+            function setConsent(analytics) {
+                const consent = {
+                    date: new Date().toISOString(),
+                    analytics: analytics
+                };
+                localStorage.setItem('cookie_consent', JSON.stringify(consent));
+                hideBanner();
+                hideModal();
+                
+                // Si usas Google Analytics, el código de GA iría aquí:
+                if (analytics) {
+                     // console.log("Cargar Google Analytics o scripts de terceros aquí.");
+                } else {
+                     // console.log("Bloquear Google Analytics o scripts de terceros aquí.");
+                }
+            }
+
+            // --- Inicialización de Cookies ---
+            const consent = getConsent();
+            if (consent === null) {
+                // Si nunca ha dado consentimiento, mostramos el banner
+                showBanner();
+            } else {
+                // Si ya dio consentimiento, cargamos la preferencia
+                if (consent.analytics) {
+                    // Cargar scripts si están permitidos
+                }
+            }
+
+            // --- Listeners de Cookies ---
+            acceptAllBtn.addEventListener('click', () => {
+                setConsent(true); // Aceptar todas (Incluye Analítica)
+            });
+
+            configureBtn.addEventListener('click', () => {
+                const currentConsent = getConsent();
+                if (currentConsent) {
+                    analyticsToggle.checked = currentConsent.analytics;
+                }
+                showModal();
+            });
+
+            savePreferencesBtn.addEventListener('click', () => {
+                const analyticsAccepted = analyticsToggle.checked;
+                setConsent(analyticsAccepted);
+            });
+
+            // Cerrar modal al hacer clic fuera
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+            
+        });
+    </script>
+
 
 </body>
 </html>
