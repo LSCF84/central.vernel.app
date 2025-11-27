@@ -253,7 +253,7 @@ const App = () => {
 
                 {/* Pie de Página */}
                 <footer className="mt-24 text-center text-gray-500 text-sm">
-                    <p>&copy; 2025 LSCF Development Hub. Todos los derechos reservados. Desarrollado con tecnología React, Next.js y Tailwind CSS.</p>
+                    <p>2025 LSCF Development Hub. Todos los derechos reservados. Desarrollado con 💙 y tecnología React, Next.js y Tailwind CSS.</p>
                 </footer>
 
             </div>
