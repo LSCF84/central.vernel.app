@@ -74,35 +74,39 @@ const App = () => {
         </svg>
     );
 
-    // Definición de los proyectos
+    // Definición de los proyectos (ACTUALIZADOS con links y títulos profesionales)
     const projects = [
         {
-            title: "Portafolio UX/UI (Behance)",
-            description: "Mi colección de diseños de interfaz de usuario y experiencia de usuario. Incluye prototipos y estudios de caso.",
-            tags: [{ name: "Diseño", bg: "bg-yellow-100", text: "text-yellow-800" }, { name: "Figma", bg: "bg-blue-100", text: "text-blue-800" }, { name: "Prototipos", bg: "bg-pink-100", text: "text-pink-800" }],
-            linkText: "Ver Portafolio",
-            image: "https://placehold.co/600x400/818cf8/ffffff?text=Previsualizaci%C3%B3n+UX%2FUI"
+            title: "LSCF Central (Plataforma Principal)",
+            description: "Dashboard centralizado para la gestión de servicios y recursos. Arquitectura modular y escalable.",
+            tags: [{ name: "Next.js", bg: "bg-gray-100", text: "text-gray-800" }, { name: "SSR", bg: "bg-blue-100", text: "text-blue-800" }, { name: "API REST", bg: "bg-pink-100", text: "text-pink-800" }],
+            linkText: "Acceder a Plataforma",
+            link: "https://lscf-central.vercel.app/",
+            image: "https://placehold.co/600x400/374151/ffffff?text=LSCF+Central"
         },
         {
-            title: "Administrador de Tareas (SaaS)",
-            description: "Una aplicación web para gestionar proyectos y tareas en tiempo real, con autenticación de usuarios.",
-            tags: [{ name: "React", bg: "bg-red-100", text: "text-red-800" }, { name: "Node.js", bg: "bg-indigo-100", text: "text-indigo-800" }, { name: "MongoDB", bg: "bg-green-100", text: "text-green-800" }],
-            linkText: "Ver Demo en Vivo",
-            image: "https://placehold.co/600x400/34d399/ffffff?text=Demo+SaaS+React"
+            title: "Portfolio WebSteel (Estructuras Metálicas)",
+            description: "Sitio web corporativo de alto impacto para una empresa de estructuras metálicas. Foco en branding y galería de proyectos.",
+            tags: [{ name: "Web Corporativa", bg: "bg-green-100", text: "text-green-800" }, { name: "Tailwind CSS", bg: "bg-indigo-100", text: "text-indigo-800" }, { name: "SEO Optimizado", bg: "bg-yellow-100", text: "text-yellow-800" }],
+            linkText: "Visitar WebSteel",
+            link: "https://portfolio-websteel.vercel.app/",
+            image: "https://placehold.co/600x400/1f2937/ffffff?text=WebSteel"
         },
         {
-            title: "Librería de Componentes (GitHub)",
-            description: "Un conjunto de componentes reutilizables y accesibles construidos con Vue.js para la comunidad.",
-            tags: [{ name: "Vue.js", bg: "bg-lime-100", text: "text-lime-800" }, { name: "Código Abierto", bg: "bg-gray-100", text: "text-gray-800" }, { name: "CSS Utility", bg: "bg-cyan-100", text: "text-cyan-800" }],
-            linkText: "Ver Repositorio",
-            image: "https://placehold.co/600x400/a78bfa/ffffff?text=Libreria+Vue.js"
+            title: "Portfolio Main LSCF (Presentación Ejecutiva)",
+            description: "Mi portafolio personal principal, diseñado para una presentación ejecutiva y rápida de mis habilidades y experiencia clave.",
+            tags: [{ name: "Portafolio", bg: "bg-purple-100", text: "text-purple-800" }, { name: "Diseño Limpio", bg: "bg-red-100", text: "text-red-800" }, { name: "Single Page App", bg: "bg-cyan-100", text: "text-cyan-800" }],
+            linkText: "Ver Portafolio Ejec.",
+            link: "https://portfolio-main-lscf.vercel.app/",
+            image: "https://placehold.co/600x400/4f46e5/ffffff?text=Portfolio+Main"
         },
         {
-            title: "Web Corporativa para Startup",
-            description: "Diseño y desarrollo de la página de inicio, servicios y contacto para una nueva empresa de tecnología.",
-            tags: [{ name: "HTML/CSS", bg: "bg-teal-100", text: "text-teal-800" }, { name: "Tailwind CSS", bg: "bg-indigo-100", text: "text-indigo-800" }, { name: "JavaScript", bg: "bg-gray-100", text: "text-gray-800" }],
-            linkText: "Ir al Sitio Web",
-            image: "https://placehold.co/600x400/06b6d4/ffffff?text=Web+Corporativa"
+            title: "App Demo Next.js (Modern Full-Stack)",
+            description: "Demostración de una aplicación full-stack moderna construida con el stack más reciente de Next.js. Incluye autenticación y base de datos simulada.",
+            tags: [{ name: "Next.js", bg: "bg-gray-100", text: "text-gray-800" }, { name: "Full-Stack", bg: "bg-orange-100", text: "text-orange-800" }, { name: "Vercel", bg: "bg-teal-100", text: "text-teal-800" }],
+            linkText: "Explorar Demo",
+            link: "https://portfolio-nextjs-vercel-app.vercel.app/",
+            image: "https://placehold.co/600x400/065f46/ffffff?text=NextJS+Demo"
         },
     ];
 
@@ -144,13 +148,16 @@ const App = () => {
                     background-color: #374151;
                     color: #f9fafb;
                 }
+                /* Ajustes de tipografía para Modo Oscuro en elementos clave */
+                .dark-mode .header-text-dark { color: #f9fafb; }
+                .dark-mode .header-text-light { color: #d1d5db; }
                 `}
             </style>
             
             {/* Contenedor Principal Centrado */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-                {/* Selector de Tema (Theme Picker) y Modo Oscuro */}
+                {/* Selector de Tema (Theme Picker) y Modo Oscuro (MANTENIDO EN SU POSICIÓN) */}
                 <div className="fixed top-4 right-4 z-50 p-2 bg-white rounded-full shadow-lg flex space-x-2 transition duration-300 theme-controls-container">
                     <span className="text-sm font-medium text-gray-700 self-center hidden sm:inline">Tema:</span>
                     
@@ -161,6 +168,7 @@ const App = () => {
                             onClick={() => handleThemeChange(key)}
                             className={`w-8 h-8 rounded-full bg-${key}-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${key}-600 transition duration-150 ${activeTheme === key ? 'ring-4 ring-offset-2' : ''}`}
                             title={`Tema ${key.charAt(0).toUpperCase() + key.slice(1)}`}
+                            style={{ backgroundColor: `rgb(${THEMES[key]['primary-500']})` }} // Asegura el color directo en el botón
                         ></button>
                     ))}
                     
@@ -180,54 +188,60 @@ const App = () => {
                     </button>
                 </div>
 
-                {/* Sección de Encabezado y Presentación (Hero) */}
-                <header className="text-center py-16 bg-white rounded-xl shadow-xl mb-12 transition duration-300">
-                    <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl tracking-tight">
-                        Portafolio Único de Proyectos
+                {/* Sección de Encabezado y Presentación (Hero) - ESTILO MEJORADO */}
+                <header className="text-center py-20 bg-white rounded-2xl shadow-2xl mb-16 transition duration-300 border-b-8 theme-border-top border-opacity-70">
+                    {/* Placeholder para la imagen de perfil/logo profesional */}
+                    <div className="mx-auto w-24 h-24 mb-6 rounded-full bg-gray-200 flex items-center justify-center text-4xl font-light text-gray-600 border-4 border-white dark:border-[#111827] shadow-inner">
+                        LSCF
+                    </div>
+
+                    <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl tracking-tight header-text-dark">
+                        Hub Central de Proyectos de Desarrollo
                     </h1>
-                    <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                        Aquí unifico todos mis trabajos y creaciones web. Explora mis proyectos más recientes y accede a mis portafolios específicos.
+                    <p className="mt-4 text-xl text-gray-600 max-w-4xl mx-auto header-text-light">
+                        Esta web actúa como el punto de acceso principal a mi ecosistema de aplicaciones y portafolios. Explora soluciones avanzadas de Next.js, plataformas modulares y sitios web corporativos de alto rendimiento.
                     </p>
                     {/* Botón de Llamada a la Acción */}
-                    <div className="mt-8">
-                        <a href="#proyectos" className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-lg font-semibold rounded-full shadow-lg text-white theme-bg-primary theme-hover-bg-primary transition duration-300 transform hover:scale-[1.03] active:scale-100">
-                            Ver Proyectos Ahora
+                    <div className="mt-10">
+                        <a href="#proyectos" className="inline-flex items-center justify-center px-10 py-3.5 border border-transparent text-lg font-semibold rounded-lg shadow-xl text-white theme-bg-primary theme-hover-bg-primary transition duration-300 transform hover:scale-[1.02] active:scale-100 ring-4 ring-transparent hover:ring-white/30">
+                            Explorar Soluciones
                         </a>
                     </div>
                 </header>
 
-                {/* Sección de Proyectos (Grid) */}
+                {/* Sección de Proyectos (Grid) - ESTILO MEJORADO */}
                 <section id="proyectos" className="pt-10">
-                    <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">Mis Proyectos Destacados</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 text-center mb-12 header-text-dark">Showcase: Proyectos y Plataformas Conectadas</h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {projects.map((project, index) => (
                             <div 
                                 key={index} 
-                                className="bg-white rounded-xl shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-8 theme-border-top border-opacity-70"
+                                className="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group" // Añade grupo para efectos de hover
                             >
-                                {/* Placeholder de Vercel/Imagen de Previsualización */}
-                                <div className="h-32 bg-gray-100/50 flex items-center justify-center">
+                                {/* Imagen de Previsualización */}
+                                <div className="h-40 bg-gray-100/50 flex items-center justify-center overflow-hidden">
                                     <img 
                                         src={project.image} 
                                         onError={(e) => e.target.src=`https://placehold.co/600x400/818cf8/ffffff?text=Previsualizaci%C3%B3n`} 
                                         alt={`Previsualización de ${project.title}`} 
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]"
                                     />
                                 </div>
-                                <div className="p-5">
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                                <div className="p-6">
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2 header-text-dark">{project.title}</h3>
+                                    <p className="text-gray-600 text-sm mb-4 line-clamp-3 header-text-light">
                                         {project.description}
                                     </p>
                                     <div className="flex flex-wrap gap-2 text-xs mb-4">
                                         {project.tags.map((tag, i) => (
-                                            <span key={i} className={`px-2 py-0.5 ${tag.bg} ${tag.text} rounded-full font-medium`}>
+                                            <span key={i} className={`px-2.5 py-0.5 ${tag.bg} ${tag.text} rounded-full font-medium shadow-sm`}>
                                                 {tag.name}
                                             </span>
                                         ))}
                                     </div>
-                                    <a href="#" target="_blank" className="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm">
+                                    {/* Enlace al proyecto real */}
+                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm mt-3 group-hover:underline">
                                         {project.linkText}
                                         <ExternalLinkIcon />
                                     </a>
@@ -238,8 +252,8 @@ const App = () => {
                 </section>
 
                 {/* Pie de Página */}
-                <footer className="mt-20 text-center text-gray-500 text-sm">
-                    <p>&copy; 2025 [Tu Nombre]. Todos los derechos reservados. Desarrollado con 💙 y React/Tailwind CSS.</p>
+                <footer className="mt-24 text-center text-gray-500 text-sm">
+                    <p>&copy; 2025 LSCF Development Hub. Todos los derechos reservados. Desarrollado con tecnología React, Next.js y Tailwind CSS.</p>
                 </footer>
 
             </div>
