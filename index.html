@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio Centralizado de Proyectos Web</title>
+    <title>Hub Central de Proyectos de Desarrollo LSCF</title>
     <!-- Carga de Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configuración para usar la fuente Inter -->
@@ -27,6 +27,7 @@
             background-color: rgb(var(--color-primary-600) / 1);
         }
         .theme-border-top {
+            /* Asegura que el color de borde usa la variable */
             border-top-color: rgb(var(--color-border-color) / 1);
         }
         .theme-text-primary {
@@ -89,128 +90,145 @@
             </button>
         </div>
 
-        <!-- Sección de Encabezado y Presentación (Hero) -->
-        <header class="text-center py-16 bg-white rounded-xl shadow-lg mb-12 transition duration-300">
+        <!-- Sección de Encabezado y Presentación (Hero) - MODIFICADO -->
+        <header class="text-center py-20 bg-white rounded-2xl shadow-2xl mb-16 transition duration-300 border-b-8 theme-border-top border-opacity-70">
+            <!-- Placeholder para la imagen de perfil/logo profesional -->
+            <div class="mx-auto w-24 h-24 mb-6 rounded-full bg-gray-200 flex items-center justify-center text-4xl font-light text-gray-600 border-4 border-white dark:border-[#111827] shadow-inner">
+                LSCF
+            </div>
+            
             <h1 class="text-5xl font-extrabold text-gray-900 sm:text-6xl tracking-tight">
-                Portafolio Único de Proyectos
+                Hub Central de Proyectos de Desarrollo
             </h1>
-            <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                Aquí unifico todos mis trabajos y creaciones web. Explora mis proyectos más recientes y accede a mis portafolios específicos.
+            <p class="mt-4 text-xl text-gray-600 max-w-4xl mx-auto">
+                Esta web actúa como el punto de acceso principal a mi ecosistema de aplicaciones y portafolios. Explora soluciones avanzadas de Next.js, plataformas modulares y sitios web corporativos de alto rendimiento.
             </p>
             <!-- Botón de Llamada a la Acción -->
-            <div class="mt-8">
-                <a href="#proyectos" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-md text-white theme-bg-primary theme-hover-bg-primary transition duration-300 transform hover:scale-105">
-                    Ver Proyectos Ahora
+            <div class="mt-10">
+                <a href="#proyectos" class="inline-flex items-center justify-center px-10 py-3.5 border border-transparent text-lg font-semibold rounded-lg shadow-xl text-white theme-bg-primary theme-hover-bg-primary transition duration-300 transform hover:scale-[1.02] active:scale-100 ring-4 ring-transparent hover:ring-white/30">
+                    Explorar Soluciones
                 </a>
             </div>
         </header>
 
         <!-- Sección de Proyectos (Grid) -->
         <section id="proyectos" class="pt-10">
-            <h2 class="text-3xl font-bold text-gray-900 text-center mb-10">Mis Proyectos Destacados</h2>
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Showcase: Proyectos y Plataformas Conectadas</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- Tarjeta de Proyecto 1: Portfolio Específico (CON PREVISUALIZACIÓN) -->
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-300 border-t-4 theme-border-top">
-                    <!-- Placeholder de Vercel/Imagen de Previsualización -->
-                    <div class="h-40 bg-gradient-to-br from-indigo-500/10 to-blue-500/20 flex items-center justify-center">
-                        <img src="https://placehold.co/600x400/818cf8/ffffff?text=Previsualizaci%C3%B3n+UX%2FUI" onerror="this.onerror=null;this.src='https://placehold.co/600x400/818cf8/ffffff?text=Previsualizaci%C3%B3n+UX%2FUI';" alt="Previsualización de Portafolio UX/UI" class="w-full h-full object-cover">
+                <!-- Tarjeta de Proyecto 1: LSCF Central (Plataforma Principal) -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
+                    <!-- Placeholder/Previsualización: Modificado -->
+                    <div class="h-40 bg-gray-100/50 flex items-center justify-center overflow-hidden">
+                        <img src="https://placehold.co/600x400/4f46e5/ffffff?text=LSCF+Central" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/818cf8/ffffff?text=LSCF+Central';" 
+                             alt="Previsualización de LSCF Central" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Portafolio UX/UI (Behance)</h3>
-                        <p class="text-gray-600 mb-4">
-                            Mi colección de diseños de interfaz de usuario y experiencia de usuario. Incluye prototipos y estudios de caso.
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">LSCF Central (Plataforma Principal)</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            Dashboard centralizado para la gestión de servicios y recursos. Arquitectura modular y escalable.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-sm mb-4">
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">Diseño</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Figma</span>
-                            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full">Prototipos</span>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="px-2.5 py-0.5 bg-gray-100 text-gray-800 rounded-full font-medium shadow-sm">Next.js</span>
+                            <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-full font-medium shadow-sm">SSR</span>
+                            <span class="px-2.5 py-0.5 bg-pink-100 text-pink-800 rounded-full font-medium shadow-sm">API REST</span>
                         </div>
-                        <a href="#" target="_blank" class="theme-text-primary theme-hover-text-primary font-medium flex items-center">
-                            Ver Portafolio
+                        <a href="https://lscf-central.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm mt-3 group-hover:underline">
+                            Acceder a Plataforma
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- Tarjeta de Proyecto 2: Aplicación Web (CON PREVISUALIZACIÓN) -->
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-300 border-t-4 theme-border-top">
-                    <!-- Placeholder de Vercel/Imagen de Previsualización -->
-                    <div class="h-40 bg-gradient-to-br from-green-500/10 to-teal-500/20 flex items-center justify-center">
-                        <img src="https://placehold.co/600x400/34d399/ffffff?text=Demo+SaaS+React" onerror="this.onerror=null;this.src='https://placehold.co/600x400/34d399/ffffff?text=Demo+SaaS+React';" alt="Previsualización de Administrador de Tareas" class="w-full h-full object-cover">
+                <!-- Tarjeta de Proyecto 2: Portfolio WebSteel (Estructuras Metálicas) -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
+                    <!-- Placeholder/Previsualización: Modificado -->
+                    <div class="h-40 bg-gray-100/50 flex items-center justify-center overflow-hidden">
+                         <img src="https://placehold.co/600x400/1f2937/ffffff?text=WebSteel" 
+                              onerror="this.onerror=null;this.src='https://placehold.co/600x400/34d399/ffffff?text=WebSteel';" 
+                              alt="Previsualización de WebSteel" 
+                              class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Administrador de Tareas (SaaS)</h3>
-                        <p class="text-gray-600 mb-4">
-                            Una aplicación web para gestionar proyectos y tareas en tiempo real, con autenticación de usuarios.
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Portfolio WebSteel (Estructuras Metálicas)</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            Sitio web corporativo de alto impacto para una empresa de estructuras metálicas. Foco en branding y galería de proyectos.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-sm mb-4">
-                            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full">React</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Node.js</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full">MongoDB</span>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="px-2.5 py-0.5 bg-green-100 text-green-800 rounded-full font-medium shadow-sm">Web Corporativa</span>
+                            <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 rounded-full font-medium shadow-sm">Tailwind CSS</span>
+                            <span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 rounded-full font-medium shadow-sm">SEO Optimizado</span>
                         </div>
-                        <a href="#" target="_blank" class="theme-text-primary theme-hover-text-primary font-medium flex items-center">
-                            Ver Demo en Vivo
+                        <a href="https://portfolio-websteel.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm mt-3 group-hover:underline">
+                            Visitar WebSteel
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- Tarjeta de Proyecto 3: Proyecto de Código Abierto (CON PREVISUALIZACIÓN) -->
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-300 border-t-4 theme-border-top">
-                    <!-- Placeholder de Vercel/Imagen de Previsualización -->
-                    <div class="h-40 bg-gradient-to-br from-purple-500/10 to-pink-500/20 flex items-center justify-center">
-                        <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Libreria+Vue.js" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Libreria+Vue.js';" alt="Previsualización de Librería de Componentes" class="w-full h-full object-cover">
+                <!-- Tarjeta de Proyecto 3: Portfolio Main LSCF (Presentación Ejecutiva) -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
+                    <!-- Placeholder/Previsualización: Modificado -->
+                    <div class="h-40 bg-gray-100/50 flex items-center justify-center overflow-hidden">
+                        <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Portfolio+Main" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Portfolio+Main';" 
+                             alt="Previsualización de Portfolio Main LSCF" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Librería de Componentes (GitHub)</h3>
-                        <p class="text-gray-600 mb-4">
-                            Un conjunto de componentes reutilizables y accesibles construidos con Vue.js para la comunidad.
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Portfolio Main LSCF (Presentación Ejecutiva)</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            Mi portafolio personal principal, diseñado para una presentación ejecutiva y rápida de mis habilidades y experiencia clave.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-sm mb-4">
-                            <span class="px-3 py-1 bg-lime-100 text-lime-800 rounded-full">Vue.js</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full">Código Abierto</span>
-                            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full">CSS Utility</span>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="px-2.5 py-0.5 bg-purple-100 text-purple-800 rounded-full font-medium shadow-sm">Portafolio</span>
+                            <span class="px-2.5 py-0.5 bg-red-100 text-red-800 rounded-full font-medium shadow-sm">Diseño Limpio</span>
+                            <span class="px-2.5 py-0.5 bg-cyan-100 text-cyan-800 rounded-full font-medium shadow-sm">SPA</span>
                         </div>
-                        <a href="#" target="_blank" class="theme-text-primary theme-hover-text-primary font-medium flex items-center">
-                            Ver Repositorio
+                        <a href="https://portfolio-main-lscf.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm mt-3 group-hover:underline">
+                            Ver Portafolio Ejec.
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- Tarjeta de Proyecto 4: Página de Empresa (CON PREVISUALIZACIÓN) -->
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-300 border-t-4 theme-border-top">
-                    <!-- Placeholder de Vercel/Imagen de Previsualización -->
-                    <div class="h-40 bg-gradient-to-br from-cyan-500/10 to-blue-500/20 flex items-center justify-center">
-                        <img src="https://placehold.co/600x400/06b6d4/ffffff?text=Web+Corporativa" onerror="this.onerror=null;this.src='https://placehold.co/600x400/06b6d4/ffffff?text=Web+Corporativa';" alt="Previsualización de Web Corporativa" class="w-full h-full object-cover">
+                <!-- Tarjeta de Proyecto 4: App Demo Next.js (Modern Full-Stack) -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
+                    <!-- Placeholder/Previsualización: Modificado -->
+                    <div class="h-40 bg-gray-100/50 flex items-center justify-center overflow-hidden">
+                        <img src="https://placehold.co/600x400/06b6d4/ffffff?text=NextJS+Demo" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/06b6d4/ffffff?text=NextJS+Demo';" 
+                             alt="Previsualización de App Demo Next.js" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Web Corporativa para Startup</h3>
-                        <p class="text-gray-600 mb-4">
-                            Diseño y desarrollo de la página de inicio, servicios y contacto para una nueva empresa de tecnología.
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">App Demo Next.js (Modern Full-Stack)</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            Demostración de una aplicación full-stack moderna construida con el stack más reciente de Next.js.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-sm mb-4">
-                            <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full">HTML/CSS</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full">JavaScript</span>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="px-2.5 py-0.5 bg-teal-100 text-teal-800 rounded-full font-medium shadow-sm">Next.js</span>
+                            <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 rounded-full font-medium shadow-sm">Full-Stack</span>
+                            <span class="px-2.5 py-0.5 bg-gray-100 text-gray-800 rounded-full font-medium shadow-sm">Vercel</span>
                         </div>
-                        <a href="#" target="_blank" class="theme-text-primary theme-hover-text-primary font-medium flex items-center">
-                            Ir al Sitio Web
+                        <a href="https://portfolio-nextjs-vercel-app.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm mt-3 group-hover:underline">
+                            Explorar Demo
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- Puedes añadir más proyectos aquí... -->
+                <!-- Si deseas añadir el quinto enlace (que era una repetición de LSCF Central), podrías duplicar una de las tarjetas aquí y darle un enfoque diferente. -->
 
             </div>
         </section>
 
-        <!-- Pie de Página -->
-        <footer class="mt-16 text-center text-gray-500 text-sm">
-            <p>&copy; 2025 [Tu Nombre]. Todos los derechos reservados. Desarrollado con 💙 y Tailwind CSS.</p>
+        <!-- Pie de Página - MODIFICADO -->
+        <footer class="mt-24 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 LSCF Development Hub. Todos los derechos reservados. Desarrollado con 💙 y Tailwind CSS.</p>
         </footer>
 
     </div>
