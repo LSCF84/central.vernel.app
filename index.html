@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Centralizado de Proyectos Web</title>
+    <!-- Carga de Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración para usar la fuente Inter -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Fondo gris muy claro (Light Mode) */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        /* Definición de variables CSS para el tema */
+        :root {
+            --color-primary-500: 48 44 233; /* Indigo 600 (RGB) */
+            --color-primary-600: 67 56 202; /* Indigo 700 (RGB) */
+            --color-border-color: 79 70 229; /* Indigo 500 (RGB) */
+        }
+        .theme-bg-primary {
+            background-color: rgb(var(--color-primary-500) / 1);
+        }
+        .theme-hover-bg-primary:hover {
+            background-color: rgb(var(--color-primary-600) / 1);
+        }
+        .theme-border-top {
+            border-top-color: rgb(var(--color-border-color) / 1);
+        }
+        .theme-text-primary {
+            color: rgb(var(--color-primary-500) / 1);
+        }
+        .theme-hover-text-primary:hover {
+            color: rgb(var(--color-primary-600) / 1);
+        }
+
+        /* --- Estilos para el Modo Oscuro (Dark Mode) --- */
+        .dark-mode {
+            background-color: #111827; /* Fondo oscuro principal */
+        }
+        /* Ajuste de fondo para Header y Tarjetas */
+        .dark-mode .bg-white {
+            background-color: #1f2937; /* Fondo oscuro para elementos internos */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        }
+        /* Ajuste de color de texto */
+        .dark-mode .text-gray-900 {
+            color: #f9fafb; /* Títulos a blanco */
+        }
+        .dark-mode .text-gray-600 {
+            color: #d1d5db; /* Texto principal a gris claro */
+        }
+        .dark-mode .text-gray-500 {
+            color: #9ca3af; /* Texto secundario a gris medio */
+        }
+        .dark-mode .theme-controls-container {
+            background-color: #1f2937; /* Fondo del selector de temas oscuro */
+        }
+        .dark-mode #theme-toggle {
+            background-color: #374151; /* Fondo del botón de toggle oscuro */
+            color: #f9fafb; /* Color del icono claro */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Contenedor Principal Centrado -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- Selector de Tema (Theme Picker) y Modo Oscuro -->
+        <div class="fixed top-4 right-4 z-50 p-2 bg-white rounded-full shadow-lg flex space-x-2 transition duration-300 theme-controls-container">
+            <span class="text-sm font-medium text-gray-700 self-center hidden sm:inline">Tema:</span>
+            <!-- Botones de Color (Índigo, Verde, Púrpura) -->
+            <button id="theme-indigo" class="w-8 h-8 rounded-full bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition duration-150" title="Tema Índigo"></button>
+            <button id="theme-green" class="w-8 h-8 rounded-full bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transition duration-150" title="Tema Verde"></button>
+            <button id="theme-purple" class="w-8 h-8 rounded-full bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-600 transition duration-150" title="Tema Púrpura"></button>
+            
+            <!-- Separador -->
+            <div class="border-l border-gray-300 mx-1"></div>
+
+            <!-- Botón para alternar Modo Oscuro/Claro -->
+            <button id="theme-toggle" class="w-8 h-8 rounded-full bg-gray-200 text-gray-800 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150" title="Alternar Modo Oscuro">
+                <!-- Icono de Luna (Modo Oscuro) -->
+                <svg id="moon-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21.73,15.75A9.43,9.43,0,0,1,16,19.5,9.55,9.55,0,0,1,6.5,10,9.43,9.43,0,0,1,10.25,4.27a.5.5,0,0,0-.49-.24A10,10,0,1,0,22,16.24a.5.5,0,0,0-.27-.49Z"/></svg>
+                <!-- Icono de Sol (Modo Claro) - inicialmente oculto -->
+                <svg id="sun-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12,4a1,1,0,0,0-1,1V7a1,1,0,0,0,2,0V5A1,1,0,0,0,12,4Zm7.66,4.66a1,1,0,0,0-.71.29L17.59,9.88a1,1,0,0,0,1.42,1.42l1.34-1.34a1,1,0,0,0,0-1.42A1,1,0,0,0,19.66,8.66ZM12,17a5,5,0,1,0,5,5A5,5,0,0,0,12,17Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,12,25ZM4.34,9.99a1,1,0,0,0,1.42,0l1.34-1.34a1,1,0,0,0-1.42-1.42L4.34,8.57A1,1,0,0,0,4.34,9.99ZM5,12a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V13A1,1,0,0,0,5,12Zm2,7.34a1,1,0,0,0,1.42,0l1.34-1.34a1,1,0,0,0-1.42-1.42L6,17.59A1,1,0,0,0,7.34,19.34Z"/></svg>
+            </button>
+        </div>
+
+        <!-- Sección de Encabezado y Presentación (Hero) -->
+        <header class="text-center py-16 bg-white rounded-xl shadow-lg mb-12 transition duration-300">
+            <h1 class="text-5xl font-extrabold text-gray-900 sm:text-6xl tracking-tight">
+                Portafolio Único de Proyectos
+            </h1>
+            <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                Aquí unifico todos mis trabajos y creaciones web. Explora mis proyectos más recientes y accede a mis portafolios específicos.
+            </p>
+            <!-- Botón de Llamada a la Acción -->
+            <div class="mt-8">
+                <a href="#proyectos" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-md text-white theme-bg-primary theme-hover-bg-primary transition duration-300 transform hover:scale-105">
+                    Ver Proyectos Ahora
+                </a>
+            </div>
+        </header>
+
+        <!-- Sección de Proyectos (Grid) -->
+        <section id="proyectos" class="pt-10">
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-10">Mis Proyectos Destacados</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Tarjeta de Proyecto 1: Portfolio Específico (CON PREVISUALIZACIÓN) -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-300 border-t-4 theme-border-top">
+                    <!-- Placeholder de Vercel/Imagen de Previsualización -->
+                    <div class="h-40 bg-gradient-to-br from-indigo-500/10 to-blue-500/20 flex items-center justify-center">
+                        <img src="https://placehold.co/600x400/818cf8/ffffff?text=Previsualizaci%C3%B3n+UX%2FUI" onerror="this.onerror=null;this.src='https://placehold.co/600x400/818cf8/ffffff?text=Previsualizaci%C3%B3n+UX%2FUI';" alt="Previsualización de Portafolio UX/UI" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Portafolio UX/UI (Behance)</h3>
+                        <p class="text-gray-600 mb-4">
+                            Mi colección de diseños de interfaz de usuario y experiencia de usuario. Incluye prototipos y estudios de caso.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-sm mb-4">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">Diseño</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Figma</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full">Prototipos</span>
+                        </div>
+                        <a href="#" target="_blank" class="theme-text-primary theme-hover-text-primary font-medium flex items-center">
+                            Ver Portafolio
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Proyecto 2: Aplicación Web (CON PREVISUALIZACIÓN) -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-300 border-t-4 theme-border-top">
+                    <!-- Placeholder de Vercel/Imagen de Previsualización -->
+                    <div class="h-40 bg-gradient-to-br from-green-500/10 to-teal-500/20 flex items-center justify-center">
+                        <img src="https://placehold.co/600x400/34d399/ffffff?text=Demo+SaaS+React" onerror="this.onerror=null;this.src='https://placehold.co/600x400/34d399/ffffff?text=Demo+SaaS+React';" alt="Previsualización de Administrador de Tareas" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Administrador de Tareas (SaaS)</h3>
+                        <p class="text-gray-600 mb-4">
+                            Una aplicación web para gestionar proyectos y tareas en tiempo real, con autenticación de usuarios.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-sm mb-4">
+                            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full">React</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full">MongoDB</span>
+                        </div>
+                        <a href="#" target="_blank" class="theme-text-primary theme-hover-text-primary font-medium flex items-center">
+                            Ver Demo en Vivo
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Proyecto 3: Proyecto de Código Abierto (CON PREVISUALIZACIÓN) -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-300 border-t-4 theme-border-top">
+                    <!-- Placeholder de Vercel/Imagen de Previsualización -->
+                    <div class="h-40 bg-gradient-to-br from-purple-500/10 to-pink-500/20 flex items-center justify-center">
+                        <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Libreria+Vue.js" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Libreria+Vue.js';" alt="Previsualización de Librería de Componentes" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Librería de Componentes (GitHub)</h3>
+                        <p class="text-gray-600 mb-4">
+                            Un conjunto de componentes reutilizables y accesibles construidos con Vue.js para la comunidad.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-sm mb-4">
+                            <span class="px-3 py-1 bg-lime-100 text-lime-800 rounded-full">Vue.js</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full">Código Abierto</span>
+                            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full">CSS Utility</span>
+                        </div>
+                        <a href="#" target="_blank" class="theme-text-primary theme-hover-text-primary font-medium flex items-center">
+                            Ver Repositorio
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Proyecto 4: Página de Empresa (CON PREVISUALIZACIÓN) -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-300 border-t-4 theme-border-top">
+                    <!-- Placeholder de Vercel/Imagen de Previsualización -->
+                    <div class="h-40 bg-gradient-to-br from-cyan-500/10 to-blue-500/20 flex items-center justify-center">
+                        <img src="https://placehold.co/600x400/06b6d4/ffffff?text=Web+Corporativa" onerror="this.onerror=null;this.src='https://placehold.co/600x400/06b6d4/ffffff?text=Web+Corporativa';" alt="Previsualización de Web Corporativa" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Web Corporativa para Startup</h3>
+                        <p class="text-gray-600 mb-4">
+                            Diseño y desarrollo de la página de inicio, servicios y contacto para una nueva empresa de tecnología.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-sm mb-4">
+                            <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full">HTML/CSS</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full">JavaScript</span>
+                        </div>
+                        <a href="#" target="_blank" class="theme-text-primary theme-hover-text-primary font-medium flex items-center">
+                            Ir al Sitio Web
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Puedes añadir más proyectos aquí... -->
+
+            </div>
+        </section>
+
+        <!-- Pie de Página -->
+        <footer class="mt-16 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 [Tu Nombre]. Todos los derechos reservados. Desarrollado con 💙 y Tailwind CSS.</p>
+        </footer>
+
+    </div>
+
+    <!-- Script de JavaScript para la funcionalidad de cambio de tema y modo oscuro -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themes = {
+                'indigo': {
+                    'primary-500': '48 44 233', 
+                    'primary-600': '67 56 202', 
+                    'border-color': '79 70 229' 
+                },
+                'green': {
+                    'primary-500': '22 163 74',  
+                    'primary-600': '21 128 61',  
+                    'border-color': '34 197 94'  
+                },
+                'purple': {
+                    'primary-500': '124 58 237', 
+                    'primary-600': '109 40 217', 
+                    'border-color': '168 85 247' 
+                }
+            };
+
+            const root = document.documentElement;
+            const body = document.body;
+            const themeToggle = document.getElementById('theme-toggle');
+            const moonIcon = document.getElementById('moon-icon');
+            const sunIcon = document.getElementById('sun-icon');
+
+            // --- Funciones del Modo Oscuro ---
+            function enableDarkMode() {
+                body.classList.add('dark-mode');
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+                localStorage.setItem('colorMode', 'dark');
+            }
+
+            function disableDarkMode() {
+                body.classList.remove('dark-mode');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('colorMode', 'light');
+            }
+
+            function toggleDarkMode() {
+                if (body.classList.contains('dark-mode')) {
+                    disableDarkMode();
+                } else {
+                    enableDarkMode();
+                }
+            }
+
+            // --- Funciones del Tema de Color ---
+            function applyTheme(themeName) {
+                const theme = themes[themeName];
+                if (theme) {
+                    root.style.setProperty('--color-primary-500', theme['primary-500']);
+                    root.style.setProperty('--color-primary-600', theme['primary-600']);
+                    root.style.setProperty('--color-border-color', theme['border-color']);
+                    localStorage.setItem('portfolioTheme', themeName);
+                }
+            }
+
+            // --- Inicialización ---
+
+            // Cargar el tema de color guardado
+            const savedTheme = localStorage.getItem('portfolioTheme') || 'indigo';
+            applyTheme(savedTheme);
+
+            // Cargar el modo de color guardado (oscuro/claro)
+            const savedColorMode = localStorage.getItem('colorMode');
+            if (savedColorMode === 'dark') {
+                enableDarkMode();
+            } else {
+                disableDarkMode(); // Asegurarse de que esté en modo claro si no hay preferencia o es 'light'
+            }
+
+            // --- Añadir Listeners ---
+            
+            // Listeners para los temas de color
+            document.getElementById('theme-indigo').addEventListener('click', () => applyTheme('indigo'));
+            document.getElementById('theme-green').addEventListener('click', () => applyTheme('green'));
+            document.getElementById('theme-purple').addEventListener('click', () => applyTheme('purple'));
+
+            // Listener para el toggle de modo oscuro
+            themeToggle.addEventListener('click', toggleDarkMode);
+        });
+    </script>
+
+</body>
+</html>
