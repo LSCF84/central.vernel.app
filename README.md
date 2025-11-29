@@ -4,7 +4,7 @@
 
 Este repositorio contiene el código fuente para la **Plataforma Central LSCF**, diseñada como una *landing page* y directorio principal. Su objetivo es guiar a los visitantes a través de mis diferentes proyectos, portafolios específicos y recursos, actuando como el **índice de mi trabajo en la web**.
 
-![Captura de pantalla de la aplicación de Portfolio](Pendiente)
+![Captura de pantalla de la aplicación de Portfolio](https://central-lscf.vercel.app/imagenes/central-lscf.vercel.app.png)
 
 ---
 
