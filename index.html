@@ -1,457 +1,455 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hub Central de Proyectos de Desarrollo LSCF</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-        }
-    </script>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f9fb; /* Fondo gris muy claro (Light Mode) */
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        /* Definición de variables CSS para el tema */
-        :root {
-            --color-primary-500: 48 44 233; /* Indigo 600 (RGB) */
-            --color-primary-600: 67 56 202; /* Indigo 700 (RGB) */
-            --color-border-color: 79 70 229; /* Indigo 500 (RGB) */
-        }
-        .theme-bg-primary {
-            background-color: rgb(var(--color-primary-500) / 1);
-        }
-        .theme-hover-bg-primary:hover {
-            background-color: rgb(var(--color-primary-600) / 1);
-        }
-        .theme-border-top {
-            border-top-color: rgb(var(--color-border-color) / 1);
-        }
-        .theme-text-primary {
-            color: rgb(var(--color-primary-500) / 1);
-        }
-        .theme-hover-text-primary:hover {
-            color: rgb(var(--color-primary-600) / 1);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Central de Proyectos de Desarrollo LSCF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Fondo gris muy claro (Light Mode) */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Definición de variables CSS para el tema */
+        :root {
+            --color-primary-500: 48 44 233; /* Indigo 600 (RGB) */
+            --color-primary-600: 67 56 202; /* Indigo 700 (RGB) */
+            --color-border-color: 79 70 229; /* Indigo 500 (RGB) */
+        }
+        .theme-bg-primary {
+            background-color: rgb(var(--color-primary-500) / 1);
+        }
+        .theme-hover-bg-primary:hover {
+            background-color: rgb(var(--color-primary-600) / 1);
+        }
+        .theme-border-top {
+            border-top-color: rgb(var(--color-border-color) / 1);
+        }
+        .theme-text-primary {
+            color: rgb(var(--color-primary-500) / 1);
+        }
+        .theme-hover-text-primary:hover {
+            color: rgb(var(--color-primary-600) / 1);
+        }
+    </style>
 </head>
 <body class="antialiased bg-gray-50 dark:bg-gray-900 transition duration-300">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-        <div class="fixed top-4 right-4 z-50 p-2 bg-white dark:bg-gray-800 rounded-full shadow-lg flex space-x-2 transition duration-300 theme-controls-container dark:shadow-2xl dark:border dark:border-gray-700">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300 self-center hidden sm:inline">Tema:</span>
-            
-            <button id="theme-indigo" class="w-8 h-8 rounded-full bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-indigo-600 transition duration-150" title="Tema Índigo"></button>
-            <button id="theme-green" class="w-8 h-8 rounded-full bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-green-600 transition duration-150" title="Tema Verde"></button>
-            <button id="theme-purple" class="w-8 h-8 rounded-full bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-purple-600 transition duration-150" title="Tema Púrpura"></button>
-            
-            <div class="border-l border-gray-300 dark:border-gray-600 mx-1"></div>
+        <div class="fixed top-4 right-4 z-50 p-2 bg-white dark:bg-gray-800 rounded-full shadow-lg flex space-x-2 transition duration-300 theme-controls-container dark:shadow-2xl dark:border dark:border-gray-700">
+            <span class="text-sm font-medium text-gray-700 dark:text-gray-300 self-center hidden sm:inline">Tema:</span>
+            
+            <button id="theme-indigo" class="w-8 h-8 rounded-full bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-indigo-600 transition duration-150" title="Tema Índigo"></button>
+            <button id="theme-green" class="w-8 h-8 rounded-full bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-green-600 transition duration-150" title="Tema Verde"></button>
+            <button id="theme-purple" class="w-8 h-8 rounded-full bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-purple-600 transition duration-150" title="Tema Púrpura"></button>
+            
+            <div class="border-l border-gray-300 dark:border-gray-600 mx-1"></div>
 
-            <button id="theme-toggle" class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-gray-500 transition duration-150" title="Alternar Modo Oscuro">
-                <svg id="moon-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21.73,15.75A9.43,9.43,0,0,1,16,19.5,9.55,9.55,0,0,1,6.5,10,9.43,9.43,0,0,1,10.25,4.27a.5.5,0,0,0-.49-.24A10,10,0,1,0,22,16.24a.5.5,0,0,0-.27-.49Z"/></svg>
-                <svg id="sun-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12,4a1,1,0,0,0-1,1V7a1,1,0,0,0,2,0V5A1,1,0,0,0,12,4Zm7.66,4.66a1,1,0,0,0-.71.29L17.59,9.88a1,1,0,0,0,1.42,1.42l1.34-1.34a1,1,0,0,0,0-1.42A1,1,0,0,0,19.66,8.66ZM12,17a5,5,0,1,0,5,5A5,5,0,0,0,12,17Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,12,25ZM4.34,9.99a1,1,0,0,0,1.42,0l1.34-1.34a1,1,0,0,0-1.42-1.42L4.34,8.57A1,1,0,0,0,4.34,9.99ZM5,12a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V13A1,1,0,0,0,5,12Zm2,7.34a1,1,0,0,0,1.42,0l1.34-1.34a1,1,0,0,0-1.42-1.42L6,17.59A1,1,0,0,0,7.34,19.34Z"/></svg>
-            </button>
-        </div>
+            <button id="theme-toggle" class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 focus:ring-gray-500 transition duration-150" title="Alternar Modo Oscuro">
+                <svg id="moon-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21.73,15.75A9.43,9.43,0,0,1,16,19.5,9.55,9.55,0,0,1,6.5,10,9.43,9.43,0,0,1,10.25,4.27a.5.5,0,0,0-.49-.24A10,10,0,1,0,22,16.24a.5.5,0,0,0-.27-.49Z"/></svg>
+                <svg id="sun-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M12,4a1,1,0,0,0-1,1V7a1,1,0,0,0,2,0V5A1,1,0,0,0,12,4Zm7.66,4.66a1,1,0,0,0-.71.29L17.59,9.88a1,1,0,0,0,1.42,1.42l1.34-1.34a1,1,0,0,0,0-1.42A1,1,0,0,0,19.66,8.66ZM12,17a5,5,0,1,0,5,5A5,5,0,0,0,12,17Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,12,25ZM4.34,9.99a1,1,0,0,0,1.42,0l1.34-1.34a1,1,0,0,0-1.42-1.42L4.34,8.57A1,1,0,0,0,4.34,9.99ZM5,12a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V13A1,1,0,0,0,5,12Zm2,7.34a1,1,0,0,0,1.42,0l1.34-1.34a1,1,0,0,0-1.42-1.42L6,17.59A1,1,0,0,0,7.34,19.34Z"/></svg>
+            </button>
+        </div>
 
-        <header class="text-center py-20 bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-2xl mb-16 transition duration-300 border-b-8 theme-border-top border-opacity-70">
-            
-            <div class="mx-auto w-24 h-24 mb-6 rounded-full bg-gray-200 flex items-center justify-center text-4xl font-light text-gray-600 border-4 border-white dark:border-gray-800 shadow-inner overflow-hidden">
-                <img src="/imagenes/logo.png" alt="Logo LSCF Development" class="w-full h-full **object-contain p-2**">
-            </div>
-            
-            <h1 class="text-5xl font-extrabold text-gray-900 dark:text-white sm:text-6xl tracking-tight">
-                Hub Central de Portfolios
-            </h1>
-            <p class="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
-                Esta web actúa como el punto de acceso principal a mi ecosistema de portafolios. Explora soluciones avanzadas de Next.js, plataformas modulares, sitios web corporativos de alto rendimiento, etc.
-            </p>
-            <div class="mt-10">
-                <a href="#proyectos" class="inline-flex items-center justify-center px-10 py-3.5 border border-transparent text-lg font-semibold rounded-lg shadow-xl text-white theme-bg-primary theme-hover-bg-primary transition duration-300 transform hover:scale-[1.02] active:scale-100 ring-4 ring-transparent hover:ring-white/30 dark:ring-gray-700/30">
-                    Explorar Soluciones
-                </a>
-            </div>
-        </header>
+        <header class="text-center py-20 bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-2xl mb-16 transition duration-300 border-b-8 theme-border-top border-opacity-70">
+            
+            <div class="mx-auto w-24 h-24 mb-6 rounded-full bg-gray-200 flex items-center justify-center text-4xl font-light text-gray-600 border-4 border-white dark:border-gray-800 shadow-inner overflow-hidden">
+                <img src="/imagenes/logo.png" alt="Logo LSCF Development" class="w-full h-full object-contain p-2">
+            </div>
+            
+            <h1 class="text-5xl font-extrabold text-gray-900 dark:text-white sm:text-6xl tracking-tight">
+                Hub Central de Portfolios
+            </h1>
+            <p class="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+                Esta web actúa como el punto de acceso principal a mi ecosistema de portafolios. Explora soluciones avanzadas de Next.js, plataformas modulares, sitios web corporativos de alto rendimiento, etc.
+            </p>
+            <div class="mt-10">
+                <a href="#proyectos" class="inline-flex items-center justify-center px-10 py-3.5 border border-transparent text-lg font-semibold rounded-lg shadow-xl text-white theme-bg-primary theme-hover-bg-primary transition duration-300 transform hover:scale-[1.02] active:scale-100 ring-4 ring-transparent hover:ring-white/30 dark:ring-gray-700/30">
+                    Explorar Soluciones
+                </a>
+            </div>
+        </header>
 
-        <section id="proyectos" class="pt-10">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">Portolios</h2>
+        <section id="proyectos" class="pt-10">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">Portolios</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
-                    <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden">
-                        <img src="/imagenes/portfolio-main-lscf.vercel.app.png" 
-                             onerror="this.onerror=null;this.src='https://portfolio-main-lscf.vercel.app/';" 
-                             alt="Previsualización de Portfolio Main LSCF" 
-                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Portfolio Main</h3>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 h-16">
-                            Mi portafolio personal principal, diseñado para una presentación ejecutiva y rápida de mis habilidades y experiencia clave.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs mb-4">
-                            <span class="px-2.5 py-0.5 bg-purple-100 text-purple-800 rounded-full font-medium shadow-sm">Portafolio</span>
-                            <span class="px-2.5 py-0.5 bg-red-100 text-red-800 rounded-full font-medium shadow-sm">Diseño Limpio</span>
-                            <span class="px-2.5 py-0.5 bg-cyan-100 text-cyan-800 rounded-full font-medium shadow-sm">SPA</span>
-                        </div>
-                        <a href="https://portfolio-main-lscf.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm mt-3 group-hover:underline">
-                            Visita Portafolio Ejec.
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                        </a>
-                    </div>
-                </div>
+                                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group **h-full flex flex-col**">
+                    <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden flex-shrink-0">
+                        <img src="/imagenes/portfolio-main-lscf.vercel.app.png" 
+                             onerror="this.onerror=null;this.src='https://portfolio-main-lscf.vercel.app/';" 
+                             alt="Previsualización de Portfolio Main LSCF" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
+                    </div>
+                    <div class="p-6 **flex flex-col flex-grow**">                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Portfolio Main</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 h-16">
+                            Mi portafolio personal principal, diseñado para una presentación ejecutiva y rápida de mis habilidades y experiencia clave.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="px-2.5 py-0.5 bg-purple-100 text-purple-800 rounded-full font-medium shadow-sm">Portafolio</span>
+                            <span class="px-2.5 py-0.5 bg-red-100 text-red-800 rounded-full font-medium shadow-sm">Diseño Limpio</span>
+                            <span class="px-2.5 py-0.5 bg-cyan-100 text-cyan-800 rounded-full font-medium shadow-sm">SPA</span>
+                        </div>
+                        <a href="https://portfolio-main-lscf.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm **mt-auto** group-hover:underline">                             Visita Portafolio Ejec.
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
-                    <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden">
-                         <img src="/imagenes/portfolio-websteel.vercel.app.png" 
-                                 onerror="this.onerror=null;this.src='https://portfolio-websteel.vercel.app/';" 
-                                 alt="Previsualización de WebSteel" 
-                                 class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Portfolio WebSteel</h3>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 h-16">
-                            Sitio web corporativo de alto impacto para una empresa de estructuras metálicas. Foco en branding y galería de proyectos.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs mb-4">
-                            <span class="px-2.5 py-0.5 bg-green-100 text-green-800 rounded-full font-medium shadow-sm">Web Corporativa</span>
-                            <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 rounded-full font-medium shadow-sm">Tailwind CSS</span>
-                            <span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 rounded-full font-medium shadow-sm">SEO Optimizado</span>
-                        </div>
-                        <a href="https://portfolio-websteel.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm mt-3 group-hover:underline">
-                            Visita Porfolio Corp.
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                        </a>
-                    </div>
-                </div>
+                                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group **h-full flex flex-col**">
+                    <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden flex-shrink-0">
+                         <img src="/imagenes/portfolio-websteel.vercel.app.png" 
+                                 onerror="this.onerror=null;this.src='https://portfolio-websteel.vercel.app/';" 
+                                 alt="Previsualización de WebSteel" 
+                                 class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
+                    </div>
+                    <div class="p-6 **flex flex-col flex-grow**">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Portfolio WebSteel</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 h-16">
+                            Sitio web corporativo de alto impacto para una empresa de estructuras metálicas. Foco en branding y galería de proyectos.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="px-2.5 py-0.5 bg-green-100 text-green-800 rounded-full font-medium shadow-sm">Web Corporativa</span>
+                            <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 rounded-full font-medium shadow-sm">Tailwind CSS</span>
+                            <span class="px-2.5 py-0.5 bg-yellow-100 text-yellow-800 rounded-full font-medium shadow-sm">SEO Optimizado</span>
+                        </div>
+                        <a href="https://portfolio-websteel.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm **mt-auto** group-hover:underline">
+                            Visita Porfolio Corp.
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
-                    <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden">
-                        <img src="/imagenes/jrdev-lscf.vercel.app.png" 
-                             onerror="this.onerror=null;this.src='https://jrdev-lscf.vercel.app/';" 
-                             alt="Previsualización de App Demo Next.js" 
-                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Portafolio JR Dev</h3>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 h-16">
-                            Mi portafolio personal y principal como desarrollador Full-Stack, con énfasis en experiencia y proyectos recientes.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs mb-4">
-                            <span class="px-2.5 py-0.5 bg-teal-100 text-teal-800 rounded-full font-medium shadow-sm">Next.js</span>
-                            <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 rounded-full font-medium shadow-sm">Full-Stack</span>
-                            <span class="px-2.5 py-0.5 bg-gray-100 text-gray-800 rounded-full font-medium shadow-sm">Vercel</span>
-                        </div>
-                        <a href="https://jrdev-lscf.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm mt-3 group-hover:underline">
-                            Visita Porfolio Dev.
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                        </a>
-                    </div>
-                </div>
+                                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group **h-full flex flex-col**">
+                    <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden flex-shrink-0">
+                        <img src="/imagenes/jrdev-lscf.vercel.app.png" 
+                             onerror="this.onerror=null;this.src='https://jrdev-lscf.vercel.app/';" 
+                             alt="Previsualización de App Demo Next.js" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
+                    </div>
+                    <div class="p-6 **flex flex-col flex-grow**">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Portafolio JR Dev</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 h-16">
+                            Mi portafolio personal y principal como desarrollador Full-Stack, con énfasis en experiencia y proyectos recientes.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="px-2.5 py-0.5 bg-teal-100 text-teal-800 rounded-full font-medium shadow-sm">Next.js</span>
+                            <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 rounded-full font-medium shadow-sm">Full-Stack</span>
+                            <span class="px-2.5 py-0.5 bg-gray-100 text-gray-800 rounded-full font-medium shadow-sm">Vercel</span>
+                        </div>
+                        <a href="https://jrdev-lscf.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm **mt-auto** group-hover:underline">
+                            Visita Porfolio Dev.
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
-                    <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden">
-                        <img src="/imagenes/portfolio.nextjs.vercel.app.png" 
-                             onerror="this.onerror=null;this.src='https://portfolio-nextjs-vercel-app.vercel.app/';" 
-                             alt="Previsualización de App Demo Next.js" 
-                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2"> Portfolio Next.js </h3>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 h-16">
-                            Demostración de una aplicación full-stack moderna construida con el stack más reciente de Next.js.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs mb-4">
-                            <span class="px-2.5 py-0.5 bg-teal-100 text-teal-800 rounded-full font-medium shadow-sm">Next.js</span>
-                            <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 rounded-full font-medium shadow-sm">Full-Stack</span>
-                            <span class="px-2.5 py-0.5 bg-gray-100 text-gray-800 rounded-full font-medium shadow-sm">Vercel</span>
-                        </div>
-                        <a href="https://portfolio-nextjs-vercel-app.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm mt-3 group-hover:underline">
-                            Visita Next.js
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                        </a>
-                    </div>
-                </div>
+                                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group **h-full flex flex-col**">
+                    <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden flex-shrink-0">
+                        <img src="/imagenes/portfolio.nextjs.vercel.app.png" 
+                             onerror="this.onerror=null;this.src='https://portfolio-nextjs-vercel-app.vercel.app/';" 
+                             alt="Previsualización de App Demo Next.js" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
+                    </div>
+                    <div class="p-6 **flex flex-col flex-grow**">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2"> Portfolio Next.js </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 h-16">
+                            Demostración de una aplicación full-stack moderna construida con el stack más reciente de Next.js.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="px-2.5 py-0.5 bg-teal-100 text-teal-800 rounded-full font-medium shadow-sm">Next.js</span>
+                            <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 rounded-full font-medium shadow-sm">Full-Stack</span>
+                            <span class="px-2.5 py-0.5 bg-gray-100 text-gray-800 rounded-full font-medium shadow-sm">Vercel</span>
+                        </div>
+                        <a href="https://portfolio-nextjs-vercel-app.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm **mt-auto** group-hover:underline">
+                            Visita Next.js
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group">
-                    <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden">
-                        <img src="/imagenes/lscf-central.vercel.app.png" 
-                             onerror="this.onerror=null;this.src='https://lscf-coredigital.vercel.app/';" 
-                             alt="Previsualización de LSCF Central" 
-                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2"> Portfolio Core Digital</h3>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 h-16">
-                            Dashboard centralizado para la gestión de servicios y recursos. Arquitectura modular y escalable.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs mb-4">
-                            <span class="px-2.5 py-0.5 bg-gray-100 text-gray-800 rounded-full font-medium shadow-sm">Next.js</span>
-                            <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-full font-medium shadow-sm">SSR</span>
-                            <span class="px-2.5 py-0.5 bg-pink-100 text-pink-800 rounded-full font-medium shadow-sm">API REST</span>
-                        </div>
-                        <a href="https://lscf-coredigital.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm mt-3 group-hover:underline">
-                            Visita Porfolio Core Digital
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+                                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl dark:shadow-2xl overflow-hidden transform hover:scale-[1.03] transition duration-300 border-t-4 theme-border-top border-opacity-70 group **h-full flex flex-col**">
+                    <div class="h-40 bg-gray-100/50 dark:bg-gray-700/50 flex items-center justify-center overflow-hidden flex-shrink-0">
+                        <img src="/imagenes/lscf-central.vercel.app.png" 
+                             onerror="this.onerror=null;this.src='https://lscf-coredigital.vercel.app/';" 
+                             alt="Previsualización de LSCF Central" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.05]">
+                    </div>
+                    <div class="p-6 **flex flex-col flex-grow**">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2"> Portfolio Core Digital</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 h-16">
+                            Dashboard centralizado para la gestión de servicios y recursos. Arquitectura modular y escalable.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="px-2.5 py-0.5 bg-gray-100 text-gray-800 rounded-full font-medium shadow-sm">Next.js</span>
+                            <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-full font-medium shadow-sm">SSR</span>
+                            <span class="px-2.5 py-0.5 bg-pink-100 text-pink-800 rounded-full font-medium shadow-sm">API REST</span>
+                        </div>
+                        <a href="https://lscf-coredigital.vercel.app/" target="_blank" class="theme-text-primary theme-hover-text-primary font-semibold flex items-center text-sm **mt-auto** group-hover:underline">
+                            Visita Porfolio Core Digital
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <footer class="mt-24 text-center text-gray-500 dark:text-gray-400 text-sm">
-            <p>&copy; 2025 LSCF Development Hub. Todos los derechos reservados. Desarrollado con 💙 y tecnología React, Next.js y Tailwind CSS.</p>
-        </footer>
+        <footer class="mt-24 text-center text-gray-500 dark:text-gray-400 text-sm">
+            <p>&copy; 2025 LSCF Development Hub. Todos los derechos reservados. Desarrollado con 💙 y tecnología React, Next.js y Tailwind CSS.</p>
+        </footer>
 
-    </div>
-    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] bg-gray-900/95 dark:bg-gray-900/90 backdrop-blur-sm text-white p-4 shadow-2xl transition-transform duration-500 transform translate-y-0" role="alert" style="display: none;">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-sm">
-                Usamos cookies propias y de terceros para análisis y optimización de rendimiento. Al hacer clic en "Aceptar", consientes su uso. Consulta nuestra <a href="politica-cookies.html" class="font-semibold underline theme-text-primary hover:text-white dark:hover:text-white transition-colors">Política de Cookies</a>
-            </p>
-            <div class="flex flex-shrink-0 space-x-3">
-                <button id="cookie-accept-all" class="px-5 py-2 text-sm font-semibold rounded-lg text-white theme-bg-primary theme-hover-bg-primary transition duration-200 shadow-md">
-                    Aceptar Todo
-                </button>
-                <button id="cookie-configure" class="px-5 py-2 text-sm font-semibold rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition duration-200 shadow-md">
-                    Configurar
-                </button>
-            </div>
-        </div>
-    </div>
+    </div>
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] bg-gray-900/95 dark:bg-gray-900/90 backdrop-blur-sm text-white p-4 shadow-2xl transition-transform duration-500 transform translate-y-0" role="alert" style="display: none;">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-sm">
+                Usamos cookies propias y de terceros para análisis y optimización de rendimiento. Al hacer clic en "Aceptar", consientes su uso. Consulta nuestra <a href="politica-cookies.html" class="font-semibold underline theme-text-primary hover:text-white dark:hover:text-white transition-colors">Política de Cookies</a>
+            </p>
+            <div class="flex flex-shrink-0 space-x-3">
+                <button id="cookie-accept-all" class="px-5 py-2 text-sm font-semibold rounded-lg text-white theme-bg-primary theme-hover-bg-primary transition duration-200 shadow-md">
+                    Aceptar Todo
+                </button>
+                <button id="cookie-configure" class="px-5 py-2 text-sm font-semibold rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition duration-200 shadow-md">
+                    Configurar
+                </button>
+            </div>
+        </div>
+    </div>
 
-    <div id="cookie-modal" class="fixed inset-0 z-[110] bg-gray-900/80 dark:bg-gray-900/90 flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none" aria-modal="true" role="dialog">
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl max-w-lg w-full m-4 p-6 transform transition-transform duration-300 translate-y-4">
-            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Ajustes de Cookies</h3>
-            
-            <div class="space-y-4">
-                <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-3">
-                    <div>
-                        <p class="font-semibold text-gray-900 dark:text-white">Cookies Estrictamente Necesarias</p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">Esenciales para la funcionalidad básica del sitio (Ej: modo oscuro, sesión).</p>
-                    </div>
-                    <span class="text-sm font-semibold text-green-600 dark:text-green-400">Siempre Activas</span>
-                </div>
-                
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="font-semibold text-gray-900 dark:text-white">Cookies de Análisis y Rendimiento</p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">Nos ayudan a entender cómo los visitantes usan el sitio para mejorar la experiencia.</p>
-                    </div>
-                    <label for="analytics-toggle" class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" id="analytics-toggle" class="sr-only peer" checked>
-                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-600"></div>
-                    </label>
-                </div>
-                
-            </div>
+    <div id="cookie-modal" class="fixed inset-0 z-[110] bg-gray-900/80 dark:bg-gray-900/90 flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none" aria-modal="true" role="dialog">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl max-w-lg w-full m-4 p-6 transform transition-transform duration-300 translate-y-4">
+            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Ajustes de Cookies</h3>
+            
+            <div class="space-y-4">
+                <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-3">
+                    <div>
+                        <p class="font-semibold text-gray-900 dark:text-white">Cookies Estrictamente Necesarias</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Esenciales para la funcionalidad básica del sitio (Ej: modo oscuro, sesión).</p>
+                    </div>
+                    <span class="text-sm font-semibold text-green-600 dark:text-green-400">Siempre Activas</span>
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="font-semibold text-gray-900 dark:text-white">Cookies de Análisis y Rendimiento</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Nos ayudan a entender cómo los visitantes usan el sitio para mejorar la experiencia.</p>
+                    </div>
+                    <label for="analytics-toggle" class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="analytics-toggle" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-600"></div>
+                    </label>
+                </div>
+                
+            </div>
 
-            <div class="flex justify-end mt-6 space-x-3">
-                <button id="cookie-save-preferences" class="px-5 py-2 text-sm font-semibold rounded-lg text-white theme-bg-primary theme-hover-bg-primary transition duration-200 shadow-md">
-                    Guardar Preferencias
-                </button>
-            </div>
-        </div>
-    </div>
+            <div class="flex justify-end mt-6 space-x-3">
+                <button id="cookie-save-preferences" class="px-5 py-2 text-sm font-semibold rounded-lg text-white theme-bg-primary theme-hover-bg-primary transition duration-200 shadow-md">
+                    Guardar Preferencias
+                </button>
+            </div>
+        </div>
+    </div>
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const themes = {
-                'indigo': {
-                    'primary-500': '48 44 233', 
-                    'primary-600': '67 56 202', 
-                    'border-color': '79 70 229' 
-                },
-                'green': {
-                    'primary-500': '22 163 74',  
-                    'primary-600': '21 128 61',  
-                    'border-color': '34 197 94'  
-                },
-                'purple': {
-                    'primary-500': '124 58 237', 
-                    'primary-600': '109 40 217', 
-                    'border-color': '168 85 247' 
-                }
-            };
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themes = {
+                'indigo': {
+                    'primary-500': '48 44 233', 
+                    'primary-600': '67 56 202', 
+                    'border-color': '79 70 229' 
+                },
+                'green': {
+                    'primary-500': '22 163 74',  
+                    'primary-600': '21 128 61',  
+                    'border-color': '34 197 94'  
+                },
+                'purple': {
+                    'primary-500': '124 58 237', 
+                    'primary-600': '109 40 217', 
+                    'border-color': '168 85 247' 
+                }
+            };
 
-            const htmlElement = document.documentElement;
-            const themeToggle = document.getElementById('theme-toggle');
-            const moonIcon = document.getElementById('moon-icon');
-            const sunIcon = document.getElementById('sun-icon');
+            const htmlElement = document.documentElement;
+            const themeToggle = document.getElementById('theme-toggle');
+            const moonIcon = document.getElementById('moon-icon');
+            const sunIcon = document.getElementById('sun-icon');
 
-            // --- Funciones del Modo Oscuro ---
-            function enableDarkMode() {
-                htmlElement.classList.add('dark');
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-                localStorage.setItem('colorMode', 'dark');
-            }
+            // --- Funciones del Modo Oscuro ---
+            function enableDarkMode() {
+                htmlElement.classList.add('dark');
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+                localStorage.setItem('colorMode', 'dark');
+            }
 
-            function disableDarkMode() {
-                htmlElement.classList.remove('dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-                localStorage.setItem('colorMode', 'light');
-            }
+            function disableDarkMode() {
+                htmlElement.classList.remove('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('colorMode', 'light');
+            }
 
-            function toggleDarkMode() {
-                if (htmlElement.classList.contains('dark')) {
-                    disableDarkMode();
-                } else {
-                    enableDarkMode();
-                }
-            }
+            function toggleDarkMode() {
+                if (htmlElement.classList.contains('dark')) {
+                    disableDarkMode();
+                } else {
+                    enableDarkMode();
+                }
+            }
 
-            // --- Funciones del Tema de Color ---
-            function applyTheme(themeName) {
-                const theme = themes[themeName];
-                if (theme) {
-                    htmlElement.style.setProperty('--color-primary-500', theme['primary-500']);
-                    htmlElement.style.setProperty('--color-primary-600', theme['primary-600']);
-                    htmlElement.style.setProperty('--color-border-color', theme['border-color']);
-                    localStorage.setItem('portfolioTheme', themeName);
-                }
-            }
+            // --- Funciones del Tema de Color ---
+            function applyTheme(themeName) {
+                const theme = themes[themeName];
+                if (theme) {
+                    htmlElement.style.setProperty('--color-primary-500', theme['primary-500']);
+                    htmlElement.style.setProperty('--color-primary-600', theme['primary-600']);
+                    htmlElement.style.setProperty('--color-border-color', theme['border-color']);
+                    localStorage.setItem('portfolioTheme', themeName);
+                }
+            }
 
-            // --- Inicialización del Tema y Modo Oscuro ---
+            // --- Inicialización del Tema y Modo Oscuro ---
 
-            // Cargar el tema de color guardado
-            const savedTheme = localStorage.getItem('portfolioTheme') || 'indigo';
-            applyTheme(savedTheme);
+            // Cargar el tema de color guardado
+            const savedTheme = localStorage.getItem('portfolioTheme') || 'indigo';
+            applyTheme(savedTheme);
 
-            // Cargar el modo de color guardado (PREDETERMINADO EN MODO OSCURO)
-            const savedColorMode = localStorage.getItem('colorMode');
-            
-            if (savedColorMode === 'dark' || savedColorMode === null) {
-                enableDarkMode();
-            } else {
-                disableDarkMode();
-            }
+            // Cargar el modo de color guardado (PREDETERMINADO EN MODO OSCURO)
+            const savedColorMode = localStorage.getItem('colorMode');
+            
+            if (savedColorMode === 'dark' || savedColorMode === null) {
+                enableDarkMode();
+            } else {
+                disableDarkMode();
+            }
 
-            // --- Añadir Listeners ---
-            document.getElementById('theme-indigo').addEventListener('click', () => applyTheme('indigo'));
-            document.getElementById('theme-green').addEventListener('click', () => applyTheme('green'));
-            document.getElementById('theme-purple').addEventListener('click', () => applyTheme('purple'));
+            // --- Añadir Listeners ---
+            document.getElementById('theme-indigo').addEventListener('click', () => applyTheme('indigo'));
+            document.getElementById('theme-green').addEventListener('click', () => applyTheme('green'));
+            document.getElementById('theme-purple').addEventListener('click', () => applyTheme('purple'));
 
-            // Listener para el toggle de modo oscuro
-            themeToggle.addEventListener('click', toggleDarkMode);
-        });
-    </script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const banner = document.getElementById('cookie-banner');
-            const modal = document.getElementById('cookie-modal');
-            const acceptAllBtn = document.getElementById('cookie-accept-all');
-            const configureBtn = document.getElementById('cookie-configure');
-            const savePreferencesBtn = document.getElementById('cookie-save-preferences');
-            const analyticsToggle = document.getElementById('analytics-toggle');
+            // Listener para el toggle de modo oscuro
+            themeToggle.addEventListener('click', toggleDarkMode);
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const banner = document.getElementById('cookie-banner');
+            const modal = document.getElementById('cookie-modal');
+            const acceptAllBtn = document.getElementById('cookie-accept-all');
+            const configureBtn = document.getElementById('cookie-configure');
+            const savePreferencesBtn = document.getElementById('cookie-save-preferences');
+            const analyticsToggle = document.getElementById('analytics-toggle');
 
-            // --- Funciones del DOM/Modal ---
-            function showBanner() {
-                banner.style.display = 'block';
-                // Usamos setTimeout para asegurar la transición
-                setTimeout(() => banner.style.transform = 'translateY(0)', 10);
-            }
+            // --- Funciones del DOM/Modal ---
+            function showBanner() {
+                banner.style.display = 'block';
+                // Usamos setTimeout para asegurar la transición
+                setTimeout(() => banner.style.transform = 'translateY(0)', 10);
+            }
 
-            function hideBanner() {
-                banner.style.transform = 'translateY(100%)';
-                setTimeout(() => banner.style.display = 'none', 500);
-            }
+            function hideBanner() {
+                banner.style.transform = 'translateY(100%)';
+                setTimeout(() => banner.style.display = 'none', 500);
+            }
 
-            function showModal() {
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-                modal.querySelector('div').classList.remove('translate-y-4');
-                hideBanner();
-            }
+            function showModal() {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.querySelector('div').classList.remove('translate-y-4');
+                hideBanner();
+            }
 
-            function hideModal() {
-                modal.classList.add('opacity-0', 'pointer-events-none');
-                modal.querySelector('div').classList.add('translate-y-4');
-                if (!localStorage.getItem('cookie_consent')) {
-                    showBanner(); 
-                }
-            }
-            
-            // --- Lógica de Consentimiento ---
-            function getConsent() {
-                try {
-                    const consentString = localStorage.getItem('cookie_consent');
-                    if (consentString) {
-                         return JSON.parse(consentString);
-                    }
-                    return null;
-                } catch (e) {
-                    return null;
-                }
-            }
+            function hideModal() {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.querySelector('div').classList.add('translate-y-4');
+                if (!localStorage.getItem('cookie_consent')) {
+                    showBanner(); 
+                }
+            }
+            
+            // --- Lógica de Consentimiento ---
+            function getConsent() {
+                try {
+                    const consentString = localStorage.getItem('cookie_consent');
+                    if (consentString) {
+                         return JSON.parse(consentString);
+                    }
+                    return null;
+                } catch (e) {
+                    return null;
+                }
+            }
 
-            function setConsent(analytics) {
-                const consent = {
-                    date: new Date().toISOString(),
-                    analytics: analytics
-                };
-                localStorage.setItem('cookie_consent', JSON.stringify(consent));
-                hideBanner();
-                hideModal();
-                
-                // Si usas Google Analytics, el código de GA iría aquí:
-                if (analytics) {
-                     // console.log("Cargar Google Analytics o scripts de terceros aquí.");
-                } else {
-                     // console.log("Bloquear Google Analytics o scripts de terceros aquí.");
-                }
-            }
+            function setConsent(analytics) {
+                const consent = {
+                    date: new Date().toISOString(),
+                    analytics: analytics
+                };
+                localStorage.setItem('cookie_consent', JSON.stringify(consent));
+                hideBanner();
+                hideModal();
+                
+                // Si usas Google Analytics, el código de GA iría aquí:
+                if (analytics) {
+                     // console.log("Cargar Google Analytics o scripts de terceros aquí.");
+                } else {
+                     // console.log("Bloquear Google Analytics o scripts de terceros aquí.");
+                }
+            }
 
-            // --- Inicialización de Cookies ---
-            const consent = getConsent();
-            if (consent === null) {
-                // Si nunca ha dado consentimiento, mostramos el banner
-                showBanner();
-            } else {
-                // Si ya dio consentimiento, cargamos la preferencia
-                if (consent.analytics) {
-                    // Cargar scripts si están permitidos
-                }
-            }
+            // --- Inicialización de Cookies ---
+            const consent = getConsent();
+            if (consent === null) {
+                // Si nunca ha dado consentimiento, mostramos el banner
+                showBanner();
+            } else {
+                // Si ya dio consentimiento, cargamos la preferencia
+                if (consent.analytics) {
+                    // Cargar scripts si están permitidos
+                }
+            }
 
-            // --- Listeners de Cookies ---
-            acceptAllBtn.addEventListener('click', () => {
-                setConsent(true); // Aceptar todas (Incluye Analítica)
-            });
+            // --- Listeners de Cookies ---
+            acceptAllBtn.addEventListener('click', () => {
+                setConsent(true); // Aceptar todas (Incluye Analítica)
+            });
 
-            configureBtn.addEventListener('click', () => {
-                const currentConsent = getConsent();
-                if (currentConsent) {
-                    analyticsToggle.checked = currentConsent.analytics;
-                }
-                showModal();
-            });
+            configureBtn.addEventListener('click', () => {
+                const currentConsent = getConsent();
+                if (currentConsent) {
+                    analyticsToggle.checked = currentConsent.analytics;
+                }
+                showModal();
+            });
 
-            savePreferencesBtn.addEventListener('click', () => {
-                const analyticsAccepted = analyticsToggle.checked;
-                setConsent(analyticsAccepted);
-            });
+            savePreferencesBtn.addEventListener('click', () => {
+                const analyticsAccepted = analyticsToggle.checked;
+                setConsent(analyticsAccepted);
+            });
 
-            // Cerrar modal al hacer clic fuera
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    hideModal();
-                }
-            });
-            
-        });
-    </script>
+            // Cerrar modal al hacer clic fuera
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+            
+        });
+    </script>
 
 
 </body>
